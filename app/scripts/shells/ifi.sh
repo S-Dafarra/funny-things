@@ -302,7 +302,7 @@ hello_both() {
 }
 
 show_muscles() {
-    #breathers "stop"
+    breathers "stop"
     echo "ctpq time 1.5 off 0 pos (-27.0 78.0 -37.0 33.0 -79.0 0.0 -4.0 26.0 27.0 0.0 29.0 59.0 117.0 87.0 176.0 250.0)" | yarp rpc /ctpservice/right_arm/rpc
     echo "ctpq time 1.5 off 0 pos (-27.0 78.0 -37.0 33.0 -79.0 0.0 -4.0 26.0 27.0 0.0 29.0 59.0 117.0 87.0 176.0 250.0)" | yarp rpc /ctpservice/left_arm/rpc
     echo "ctpq time 1.0 off 0 pos (-27.0 78.0 -37.0 93.0 -79.0 0.0 -4.0 26.0 67.0 0.0 99.0 59.0 117.0 87.0 176.0 250.0)" | yarp rpc /ctpservice/right_arm/rpc
@@ -388,51 +388,84 @@ talk_mic() {
     #breathers "start"
 }
 
+karate_kid() {
+  breathers "stop"
+  echo "ctpq time 1.0 off 0 pos (-27.0 78.0 -37.0 93.0 -79.0 0.0 -4.0 26.0 67.0 0.0 99.0 59.0 117.0 87.0 176.0 250.0)" | yarp rpc /ctpservice/left_arm/rpc
+  echo "ctpq time 1.5 off 0 pos (-73.5 37.0 63.0 17.0 28.8 -9.0 0.6 60.0 16.0 64.8 0.3 2.0 2.0 0.0 0.0 0.0)" | yarp rpc /ctpservice/right_arm/rpc
+  sleep 2.0
+  go_home
+  breathers "start"
+}
+
 #######################################################################################
 # SEQUENCE FUNCTIONS
 #######################################################################################
 sequence_01() {
     gaze "look 0.0 0.0 5.0"
     sleep 1.0
-    speak "Stasera infatti ci sono anch'io!!"
+    speak "Hey man! You too here!"
     hello_right
-    sleep 2.0 && blink
+    sleep 1.0 && blink
     wait_till_quiet
-    smile && blink
+    smile && blink && question
     gaze "look-around 0.0 0.0 5.0"
 }
 
 sequence_02() {
-    speak "Ho solo 10 anni, e per me e' tardi, dovrei andare a dormire, tra poco. ma stasera staro' sveglio. Questa occasione non posso perderla!"
-    sleep 1.0
-    greet_with_right_thumb_up
-    wait_till_quiet
+    speak "Well, Cub refers to my child shape, I am pretty young you know."
     smile && blink
+    sleep 0.5
+    speak "While the I is just cool."
+    wait_till_quiet
+    victory "right_arm"
+    smile && blink && question
 }
 
 sequence_03() {
-    surprised
-    show_agitation
+    speak "Despite the hair loss, I'm quite young. About 10 years since the first time I was built." && point_ear_right
     gaze "look-around 0.0 0.0 5.0"
-    smile
+    smile && blink && question
 }
 
 sequence_04() {
-    speak "Si, sono creature bellissime, e ci sono tanti cuccioli come me! Ma, morderanno??"
+    speak "I am humanoid robot."
+    wait_till_quiet
+    speak "I look like you, but I have motors instead of muscles, and I have more than 50 of them." && show_muscles
+    wait_till_quiet
+    speak "I have skin too, along the four limbs and on the torso which allows me to feel you." && point_arms
+    wait_till_quiet
+    speak "Talking about feelings, I can be sad"
+    wait_till_quiet
+    sad
+    sleep 0.5
+    speak "Surprised"
+    wait_till_quiet
+    surprised
+    sleep 0.5
+    speak "But I mostly prefer to be happy"
+    wait_till_quiet
+    smile
     greet_with_right_thumb_up
+    blink && question
 }
 
 sequence_05() {
-    surprised
-    sleep 1.0
-    speak "Questi sono davvero tanti!...Vai avanti tu, ACP, che devi presentarli. io ti seguo...da qui."
-    smile
+    speak "Yes! I have around 30 brothers and growing" && greet_with_left_thumb_up
+    sleep 0.5
+    speak "Some of them cuter than other." && evil && show_agitation
+    wait_till_quiet
+    sleep 0.5
+    smile && blink && question
 }
 
 sequence_06() {
-    victory right_arm
-    speak "Sono decisamente piu' carino, e molto piu' giovane!."
-    go_home
+    speak "I can recognize some objects while learning how to use them. Sometimes I like to get off from a rather unconfortable chair and stretch my legs with some Tai ijhi"
+    wait_till_quiet
+    evil
+    speak "uattaaa"
+    karate_kid
+    wait_till_quiet
+    smile
 }
 
 sequence_07() {
