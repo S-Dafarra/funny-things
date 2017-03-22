@@ -23,7 +23,7 @@
 -- #5: idle
 -- #6: quit
 
-local signal = require("posix.signal")
+--local signal = require("posix.signal")
 require("yarp")
 
 rf = yarp.ResourceFinder()
@@ -37,6 +37,7 @@ else
 end
 
 interrupting = false
+--[[
 signal.signal(signal.SIGINT, function(signum)
   interrupting = true
 end)
@@ -44,6 +45,7 @@ end)
 signal.signal(signal.SIGTERM, function(signum)
   interrupting = true
 end)
+]]--
 
 yarp.Network()
 

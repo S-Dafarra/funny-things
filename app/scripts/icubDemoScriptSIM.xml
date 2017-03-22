@@ -1,0 +1,115 @@
+<application>
+    <name>icubDemoScriptSIM</name>
+
+    <module>
+        <name>iCubBreather</name>
+        <parameters>--name iCubBreatherRA --robot icubSim --part right_arm --autoStart</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>iCubBreather</name>
+        <parameters>--name iCubBreatherLA --robot icubSim --part left_arm --autoStart</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>iCubBreather</name>
+        <parameters>--name iCubBreatherT  --robot icubSim--part torso --autoStart</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>iCubBreather</name>
+        <parameters>--name iCubBreatherH --robot icubSim --part head --autoStart --rate 1500</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>ctpService</name>
+        <parameters>--robot icubSim --part head</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>ctpService</name>
+        <parameters>--robot icubSim --part left_arm</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>ctpService</name>
+        <parameters>--robot icubSim --part right_arm</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>ctpService</name>
+        <parameters>--robot icubSim --part torso</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>iCubBlinker</name>
+        <parameters>--autoStart --robot icubSim</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>iSpeak</name>
+        <parameters>--package festival</parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+        <module>
+        <name>emotionInterface</name>
+        <parameters></parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>simFaceExpressions</name>
+        <parameters></parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+    <module>
+        <name>gaze_noposix.lua</name>
+        <workdir>app/lua/</workdir>
+        <parameters></parameters>
+        <node>localhost</node>
+        <stdio></stdio>
+    </module>
+
+    <connection>
+        <from>/face/eyelids</from>
+        <to>/icubSim/face/eyelids</to>
+        <protocol>tcp</protocol>
+    </connection>
+    <connection>
+        <from>/face/image/out</from>
+        <to>/icubSim/texture/face</to>
+        <protocol>tcp</protocol>
+    </connection>
+    <connection>
+        <from>/emotion/out</from>
+        <to> /icubSim/face/raw/in</to>
+        <protocol>tcp</protocol>
+    </connection>
+    <connection>
+        <from>/gaze/tx</from>
+        <to>/iKinGazeCtrl/angles:i</to>
+        <protocol>tcp</protocol>
+    </connection>
+    <connection>
+        <from>/iKinGazeCtrl/angles:o</from>
+        <to>/gaze/rx</to>
+        <protocol>tcp</protocol>
+    </connection>
+    <connection>
+        <from>/iCubBlinker/emotions/raw</from>
+        <to>/icubSim/face/raw/in</to>
+        <protocol>tcp</protocol>
+    </connection>
+
+</application>
