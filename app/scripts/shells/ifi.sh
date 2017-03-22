@@ -403,27 +403,26 @@ karate_kid() {
 sequence_01() {
     gaze "look 0.0 0.0 5.0"
     sleep 1.0
-    speak "Hey man! You too here!"
+    surprised
+    speak "Hi everybody. is good to see you again!"
     hello_right
     sleep 1.0 && blink
     wait_till_quiet
     smile && blink && question
-    gaze "look-around 0.0 0.0 5.0"
 }
 
 sequence_02() {
-    speak "Well, Cub refers to my child shape, I am pretty young you know."
+    speak "That's an interesting story. Cub refers to my child shape. I am pretty young."
     smile && blink
-    sleep 0.5
-    speak "While the I is just cool."
     wait_till_quiet
+    speak "While the I is just cool."
     victory "right_arm"
+    sleep 3.0
     smile && blink && question
 }
 
 sequence_03() {
     speak "Despite the hair loss, I'm quite young. About 10 years since the first time I was built." && point_ear_right
-    gaze "look-around 0.0 0.0 5.0"
     smile && blink && question
 }
 
@@ -451,7 +450,7 @@ sequence_04() {
 
 sequence_05() {
     speak "Yes! I have around 30 brothers and growing" && greet_with_left_thumb_up
-    sleep 0.5
+    wait_till_quiet
     speak "Some of them cuter than other." && evil && show_agitation
     wait_till_quiet
     sleep 0.5
@@ -459,158 +458,60 @@ sequence_05() {
 }
 
 sequence_06() {
-    speak "I can recognize some objects while learning how to use them. Sometimes I like to get off from a rather unconfortable chair and stretch my legs with some Tai ijhi"
+    speak "I can recognize some objects while learning how to use them and making them roll. Sometimes I like to get off from a rather unconfortable chair and stretch my legs with some Tai ijhi"
     wait_till_quiet
     evil
     speak "uattaaa"
     karate_kid
     wait_till_quiet
-    smile
+    smile && blink && question
 }
 
 sequence_07() {
-    speak "Belli i felini! Saranno bravi genitori? Guardiamo, io vi aspetto dopo."
-    sleep 1.0
+    speak "Being simlar to a human helps me understanding the world around me."
+    wait_till_quiet
+    speak "Moreover, having two legs and two arms helps me to exploit the environment as they do."
+    victory_both
+    wait_till_quiet
+    sleep 0.5
     question
 }
 
 sequence_08() {
-    speak "L'intelligenza artificiale viene studiata proprio per aiutare l'uomo."
+    speak "My wish is to help humans without looking stupid. That's a challenge for me."
+    cun
     point_ear_right
+    wait_till_quiet
     smile && blink
+    speak "I need to learn simple task which may become useful in the everyday life."
+    wait_till_quiet
+    sleep 0.5
+    question
 }
 
 sequence_09() {
-    speak "Era ora!!"
+    speak "I like R1. It's cool and cheap."
     greet_with_right_thumb_up
+    surprised
+    show_agitation
+    smile
+    speak "Sorry. Cost effective."
     smile && blink
+    wait_till_quiet
+    speak "But I am like a Ferrari!"
+    cun
+    fonzie
+    wait_till_quiet
+    sleep 0.5
+    smile && blink && question
 }
 
 sequence_10() {
-    speak "Oltre 30, nati dopo di me, e sparsi per il mondo, dagli stati uniti al giappone"
+    evil
+    gaze "look-around 15.0 0.0 5.0"
+    speak "Thank you for leaving e plugged in."
     sleep 3.5
-    question_right
-    sleep 1.5
-    question_left
     smile && blink
-}
-
-sequence_11() {
-    speak "Ho tante mamme e papa'; all'Istituto Italiano di Tecnologia di Genova. Oggi mi ha accompagnato qui Vadiim "
-    sleep 2.0
-    hello_left_simple
-    go_home_helper 2.0
-}
-
-sequence_12() {
-    speak "Ma certo, sono un intelligenza artificiale!!"
-    victory_both
-    wait_till_quiet
-}
-
-sequence_13() {
-    gaze "look-around 0.0 0.0 5.0"
-    go_home
-    speak "Sono contento di esserti di aiuto!"
-}
-
-sequence_14() {
-    speak "Io restero' con i ricercatori, e continuero' a imparare e crescere. sara' R1 ad entrare nelle vostre case per aiutarvi"
-}
-
-sequence_15() {
-    speak "16961, ti dice niente questo numero?"
-    interaction_right
-}
-
-sequence_16() {
-    speak "Grazie Alessandro, e' ora che io vada a dormire. Mi e' piaciuta la TV."
-    echo "ctpq time 1.0 off 0 pos (-12.0 37.0 6.0 67.0 -52.0 -14.0 9.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 2.0
-    echo "ctpq time 1.0 off 0 pos (-13.0 29.0 18.0 59.0 -59.0 -12.0 -6.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    sleep 2.0
-    go_home
-}
-
-sequence_14_() {
-    gaze "look-around 15.0 0.0 5.0"
-    speak "Sono fatto di cinquemilla pezzi, posso riconoscere gli oggetti intorno a me, ed afferrarli. e posso usarli per svolgere alcuni semplici compiti."
-    sleep 1.5
-    echo "ctpq time 1.0 off 0 pos (-12.0 37.0 6.0 67.0 -52.0 -14.0 9.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    echo "ctpq time 1.0 off 0 pos (-13.0 29.0 18.0 59.0 -59.0 -12.0 -6.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    sleep 2.0
-    go_home_helper 1.2
-    wait_till_quiet
-
-    speak "Da poco, ho imparato a stare in equilibrio senza cadere, e presto imparero' a camminare, proprio come voi."
-    sleep 1.0
-    echo "ctpq time 1.0 off 0 pos (-15.0 36.0 8.0 77.0 45.0 3.0 3.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    echo "ctpq time 1.0 off 0 pos (-6.0 30.0 13.0 67.0 49.0 -13.0 5.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 0.5
-
-    echo "ctpq time 0.7 off 0 pos (-15.0 32.0 11.0 61.0 51.0 -2.0 -2.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    echo "ctpq time 0.7 off 0 pos (-3.0 50.0 15.0 97.0 33.0 -2.0 21.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 0.3
-
-    echo "ctpq time 0.7 off 0 pos (-15.0 36.0 8.0 77.0 45.0 3.0 3.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    echo "ctpq time 0.7 off 0 pos (-6.0 30.0 13.0 67.0 49.0 -13.0 5.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 2.0
-    go_home_helper 2.0
-
-    wait_till_quiet
-    speak "E poi sono l'unico robot al mondo dotato di una pelle sensibile, che mi permette di sentire quando vengo toccato, spinto, o se mi fanno il solletico."
-    sleep 3.5
-    gaze "look -20.0 -30.0 0.0"
-    echo "ctpq time 1.3 off 0 pos (-46.0 48.0 74.0 106.0 13.0 0.0 9.0    0.0 12.0 34.0 1.0 0.0 1.0 50.0 82.0 116.0)" | yarp rpc /ctpservice/right_arm/rpc
-    sleep 0.7
-    echo "ctpq time 1.0 off 0 pos (-22.0 34.0 48.0 73.0 37.0 3.0 -7.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 3.0
-    gaze "look-around 0.0 0.0 5.0"
-
-    go_home_helper 2.0
-
-    wait_till_quiet
-}
-
-sequence_16_() {
-    gaze "look-around 15.0 0.0 5.0"
-    speak "In futuro potro' aiutarvi nei lavori domestici, o in altre attivita' delicate per cui avrete bisogno di supporto."
-    echo "ctpq time 1.0 off 0 pos (-12.0 37.0 6.0 67.0 -52.0 -14.0 9.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 2.0
-    go_home_helperL 2.0
-    wait_till_quiet
-    speak "Come per esempio, l'assistenza degli anziani, o a persone disabili."
-    echo "ctpq time 1.0 off 0 pos (-13.0 29.0 18.0 59.0 -59.0 -12.0 -6.0    0.0 9.0 42.0 2.0 0.0 1.0 0.0 8.0 4.0)" | yarp rpc /ctpservice/right_arm/rpc
-    sleep 2.0
-    go_home_helperR 2.0
-    wait_till_quiet
-}
-
-sequence_17() {
-    gaze "look-around 15.0 0.0 5.0"
-    speak "In questo momento, costo 250 mila euro, ma il mio progetto e' disponibile per tutti."
-    wait_till_quiet
-    speak "Su internet si trovano i disegni per costruire il mio corpo, e il softuer per la base della mia intelligenza."
-    sleep 1
-    fonzie
-    gaze "idle"
-    echo "ctpq time 1.5 off 0 pos (-15.0 81.0 -29.0 104.0 -56.0 25.0 -1.0 0.0 9.0 30.0 57.0 0.0 0.0 90.0 130.0 250.0)" | yarp rpc /ctpservice/right_arm/rpc
-    sleep 2.0
-    gaze "look-around 15.0 0.0 5.0"
-    go_home_helperR 2.0
-    wait_till_quiet
-    speak "Anche se non e' facile costruirmi in casa."
-    wait_till_quiet
-    blink
-    sleep 0.8
-    smile
-    speak "In futuro costero' meno, come una piccola automobile, e potro' davvero aiutare le persone a casa e sul lavoro."
-    echo "ctpq time 1.0 off 0 pos (-12.0 37.0 6.0 67.0 -52.0 -14.0 9.0    12.0 -6.0 37.0 2.0 0.0 3.0 2.0 1.0 0.0)" | yarp rpc /ctpservice/left_arm/rpc
-    sleep 2.0
-    go_home_helperL 2.0
-    wait_till_quiet
-    speak "So gia' fare tantissime cose, persino tai-ci, Ora vi faccio vedere!"
-    wait_till_quiet
 }
 
 scene_pause()
@@ -637,8 +538,14 @@ scene_pause()
     read -p "waiting for enter"
     sequence_07
     # What are the challenges of artificial intelligence?
+    read -p "waiting for enter"
+    sequence_08
     # Who is better iCub or R1?
+    read -p "waiting for enter"
+    sequence_09
     # Thank you iCub for your time
+    read -p "waiting for enter"
+    sequence_10
 }
 
 
