@@ -71,6 +71,11 @@
         <from>/iSpeak/emotions:o</from>
         <to>/icub/face/emotions/in</to>
         <protocol>tcp</protocol>
-    </connection>    
+    </connection>  
+    <connection>
+        <from>/gaze/tx</from>
+        <to>/iKinGazeCtrl/angles:i</to>
+        <protocol>tcp</protocol>
+    </connection>  
 
 </application>
